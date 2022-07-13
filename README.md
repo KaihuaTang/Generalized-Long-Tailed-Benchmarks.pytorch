@@ -1,5 +1,20 @@
 # Generalized Long-tailed Classification (GLT) Benchmarks
-This project introduces a new long-tailed challenge that incorporates both the conventional class-wise imbalance and the overlooked attribute-wise imbalance within each class.
+\[ECCV 2022\] This project introduces a new long-tailed challenge that incorporates both the conventional class-wise imbalance and the overlooked attribute-wise imbalance within each class. The proposed IFL together with other baselines are also included. This project is the official implementation of the ECCV 2022 paper [Invariant Feature Learning for Generalized
+Long-Tailed Classification](https://kaihuatang.github.io/).
+
+If you find our paper or this project helps your research, please kindly consider citing our paper in your publications.
+
+```bash
+@inproceedings{tang2022invariant,
+  title={Invariant Feature Learning for Generalized Long-Tailed Classification},
+  author={Tang, Kaihua and Tao, Mingyuan and Qi, Jiaxin and Liu, Zhenguang and Zhang, Hanwang},
+  booktitle= {ECCV},
+  year={2022}
+}
+```
+
+- [ ] TODO: Writing introduction to the proposed IFL
+- [ ] TODO: Others
 
 ## Contents
 1. [Background](#background)
