@@ -1,0 +1,82 @@
+output_dir: null
+
+dataset:
+  name: 'ImageNet-LT'
+  anno_path: ./_ImageNetGeneration/imagenet_sup_intra_lt_inter_lt.json
+  # lt      :  test distribution is long-tailed in both cateogies and atttributes
+  # bl      :  the category is balanced
+  # bbl     :  both category and attribute are balanced
+  testset: 'test_lt'   # test_lt / test_bl / test_bbl
+  rgb_mean: [0.485, 0.456, 0.406]
+  rgb_std: [0.229, 0.224, 0.225]
+  rand_aug: False
+
+sampler: default         
+
+networks:
+  type: ResNext
+  ResNext:
+    def_file: ./models/ResNet.py
+    params: {m_type: 'resnext50'}
+  BBN:
+    def_file: ./models/ResNet_BBN.py
+    params: {m_type: 'bbn_resnet50'}
+  RIDE:
+    def_file: ./models/ResNet_RIDE.py
+    params: {m_type: 'resnext50', num_experts: 3, reduce_dimension: True}
+  
+classifiers:
+  type: FC
+  FC:
+    def_file: ./models/ClassifierFC.py
+    params: {feat_dim: 2048, num_classes: 1000}
+  RIDE:
+    def_file: ./models/ClassifierRIDE.py
+    params: {feat_dim: 1536, num_classes: 1000, num_experts: 3, use_norm: True}
+  BBN:
+    def_file: ./models/ClassifierFC.py
+    params: {feat_dim: 4096, num_classes: 1000}
+  COS:
+    def_file: ./models/ClassifierCOS.py 
+    params: {feat_dim: 2048, num_classes: 1000, num_head: 1, tau: 30.0}
+  LDAM:
+    def_file: ./models/ClassifierLDAM.py 
+    params: {feat_dim: 2048, num_classes: 1000}
+  TDE:
+    def_file: ./models/ClassifierTDE.py 
+    params: {feat_dim: 2048, num_classes: 1000, num_head: 2, tau: 16.0, alpha: 2.0, gamma: 0.03125}
+  LA:
+    def_file: ./models/ClassifierLA.py
+    params: {feat_dim: 2048, num_classes: 1000, posthoc: True, loss: False}
+  LWS:
+    def_file: ./models/ClassifierLWS.py
+    params: {feat_dim: 2048, num_classes: 1000}
+  MultiHead:
+    def_file: ./models/ClassifierMultiHead.py
+    params: {feat_dim: 2048, num_classes: 1000}
+
+training_opt:
+  type: baseline  # baseline / mixup / two_stage2
+  num_epochs: 100
+  batch_size: 256
+  data_workers: 4
+  loss: 'CrossEntropy'  # CrossEntropy / Focal / BalancedSoftmax / LDAM
+  loss_params: {alpha: 1.0, gamma: 2.0}
+  optimizer: 'SGD'  # 'Adam' / 'SGD'
+  optim_params: {lr: 0.1, momentum: 0.9, weight_decay: 0.0005}
+  scheduler: 'cosine' # 'cosine' / 'step' / 'multistep'
+  scheduler_params: {endlr: 0.0, gamma: 0.1, step_size: 35, milestones: [120, 160]}
+
+testing_opt:
+  type: baseline  # baseline / TDE
+
+logger_opt:
+  print_grad: false
+  print_iter: 100
+
+checkpoint_opt:
+  checkpoint_step:  10
+  checkpoint_name: 'test_model.pth'
+
+saving_opt:
+  save_all: false

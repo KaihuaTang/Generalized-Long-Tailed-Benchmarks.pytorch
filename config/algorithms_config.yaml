@@ -1,0 +1,455 @@
+
+# detailed configs for each algorithms
+
+# algorithm : baseline / mixup / TDE / cRT / LWS / IRM
+# sampler   : default / ClassAwareSampler / WeightedDualEnvSampler / WeightedQuadEnvSampler
+
+############################################################################
+# Conventional LT Methods
+############################################################################
+
+# baseline pipelines
+baseline:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {}
+
+
+# mixup
+mixup:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {}
+
+
+# BBN pipelines
+BBN:
+  test_type: baseline
+  sampler: DistributionSampler
+  num_sampler: 2
+  batch_split: False
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: BBN
+  classifier_type: BBN
+  scheduler: 'multistep'
+  scheduler_params: {gamma: 0.1, milestones: [60, 80]}
+  algorithm_opt: {}
+
+
+# TDE pipelines
+TDE:
+  test_type: TDE
+  sampler: default
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: TDE
+  algorithm_opt: {}
+
+
+# Focal loss
+Focal:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: Focal
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {}
+
+
+# Focal loss + Logit Adjustment
+FocalLA:
+  test_type: LA
+  sampler: default
+  num_epochs: 100
+  loss_type: Focal
+  backbone_type: ResNext
+  classifier_type: LA
+  algorithm_opt: {tro: 1.0}
+
+# Learning from failure loss
+LFF:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: IFF
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {tro: 1.0}
+
+# Learning from failure loss + Logit Adjustment
+LFFLA:
+  test_type: LA
+  sampler: default
+  num_epochs: 100
+  loss_type: IFF
+  backbone_type: ResNext
+  classifier_type: LA
+  algorithm_opt: {tro: 1.0}
+
+
+# Logit Adjustment
+LA:
+  test_type: LA
+  sampler: default
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: LA
+  algorithm_opt: {tro: 1.0}
+
+
+# LDAM 
+LDAM:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: LDAM
+  backbone_type: ResNext
+  classifier_type: LDAM
+  optim_params: {lr: 0.1, momentum: 0.9, weight_decay: 0.0002}
+  scheduler: 'multistep'
+  scheduler_params: {gamma: 0.01, milestones: [80, 90]}
+  algorithm_opt: {}
+
+
+# RIDE pipelines
+RIDE:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: RIDE # CrossEntropy
+  backbone_type: RIDE
+  classifier_type: RIDE
+  optim_params: {lr: 0.1, momentum: 0.9, weight_decay: 0.0002}
+  scheduler: 'multistep'
+  scheduler_params: {gamma: 0.1, milestones: [60, 80]}
+  algorithm_opt: {diversity_factor: -0.2}
+
+
+# TADE pipelines
+TADE:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: TADE # CrossEntropy
+  backbone_type: RIDE
+  classifier_type: RIDE
+  algorithm_opt: {tau: 2.0}
+
+
+# decouple stage 1 instance-balanced feature learning
+stage1:
+  test_type: baseline
+  sampler: default
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {}
+
+
+# decouple stage 2 class-balanced classifier learning
+crt_stage2:
+  test_type: baseline
+  sampler: ClassAwareSampler
+  num_epochs: 10
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {}
+
+
+# decouple stage 2 class-balanced classifier learning
+lws_stage2:
+  test_type: baseline
+  sampler: ClassAwareSampler
+  num_epochs: 10
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: LWS
+  algorithm_opt: {}
+
+
+# decouple stage 2 class-balanced classifier for RIDE learning
+ride_stage2:
+  test_type: baseline
+  sampler: ClassAwareSampler
+  num_epochs: 10
+  loss_type: CrossEntropy
+  backbone_type: RIDE
+  classifier_type: RIDE
+  optim_params: {lr: 0.1, momentum: 0.9, weight_decay: 0.0002}
+  algorithm_opt: {}
+
+
+
+############################################################################
+# The Proposed GLT Method
+############################################################################
+
+
+# center loss with dual env pipeline
+center_dual:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: BalancedSoftmax # CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [60, 80],
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], triplet_loss: False} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+
+# center loss with single env pipeline
+center_single:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: False
+  num_epochs: 100
+  loss_type: BalancedSoftmax # CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [],
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], triplet_loss: False} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+
+# center loss with single env pipeline
+center_triple:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 3
+  batch_size: 258
+  batch_split: True
+  num_epochs: 100
+  loss_type: BalancedSoftmax # CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [60, 80],
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], triplet_loss: False} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+
+# center loss with dual env pipeline (mixup version)
+center_dual_mixup:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [60, 80],
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], triplet_loss: False} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+
+
+# center loss + LDAM loss with dual env pipeline
+center_LDAM_dual:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: LDAM
+  backbone_type: ResNext
+  classifier_type: LDAM
+  scheduler: 'multistep'
+  scheduler_params: {gamma: 0.01, milestones: [80, 90]}
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [60, 80],
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], cos_loss: True} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+
+center_tade:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: TADE # TADE / CrossEntropy
+  backbone_type: RIDE
+  classifier_type: RIDE
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [60, 80], 
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], tau: 2.0} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+center_ride:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: RIDE
+  backbone_type: RIDE
+  classifier_type: RIDE
+  scheduler: 'multistep'
+  scheduler_params: {gamma: 0.1, milestones: [60, 80]}
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [60, 80], 
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], diversity_factor: -0.2,
+                  cos_loss: True} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+
+center_ride_mixup:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: RIDE
+  backbone_type: RIDE
+  classifier_type: RIDE
+  scheduler: 'multistep'
+  scheduler_params: {gamma: 0.1, milestones: [60, 80]}
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: False, update_milestones: [60, 80], 
+                  center_milestones: [0, 60, 80], center_weights: [0.0, 0.001, 0.005], diversity_factor: -0.2,
+                  cos_loss: True} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+  
+
+# dual env pipeline
+env_dual:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {env_type : intra, sample_scale : 4.0, always_update: True, update_milestones: [30, 60, 90],
+                  center_milestones: [30, 60, 90], center_weights: [0.0, 0.0, 0.0]} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+
+# IRM dual env pipeline
+irm_dual:
+  test_type: baseline
+  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+  num_sampler: 2
+  batch_split: True
+  num_epochs: 100
+  loss_type: CrossEntropy
+  backbone_type: ResNext
+  classifier_type: FC
+  algorithm_opt: {env_type : intra, irm_weight : 0.001, irm_alpha : 10, decay_milestones : [30, 60, 90],
+                  sample_scale : 4.0, always_update: True, update_milestones: [30, 60, 90]} 
+  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+  
+
+
+
+
+
+
+
+######################################################################
+
+## lff pipelines
+#lff:
+#  test_type: baseline
+#  sampler: default
+#  num_epochs: 100
+#  loss_type: CrossEntropy
+#  backbone_type: ResNext
+#  classifier_type: FC
+#  algorithm_opt: {weight_base: 0.1,  loss_base: 0.1,  q: 2.0}
+
+
+
+## center loss with dual env domain mixup pipeline
+#domain_mixup:
+#  test_type: baseline
+#  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+#  num_sampler: 2
+#  batch_split: False
+#  num_epochs: 100
+#  loss_type: CrossEntropy
+#  backbone_type: ResNext
+#  classifier_type: FC
+#  algorithm_opt: {env_type : inter_intra, center_weight : 0.001} 
+#  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+## center separate: CE for original env only, center loss for both environment
+#center_separate:
+#  test_type: baseline
+#  sampler: DistributionSampler # WeightedSampler / DistributionSampler
+#  num_sampler: 2
+#  batch_split: False
+#  num_epochs: 100
+#  loss_type: CrossEntropy
+#  backbone_type: ResNext
+#  classifier_type: FC
+#  algorithm_opt: {env_type : intra, center_weight : 0.001, detach_inv: False} 
+#  # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+# # metric learning stage 1 instance-balanced feature learning
+# metric_stage1:
+#   test_type: baseline
+#   sampler: FixSeedSampler
+#   num_sampler: 2
+#   batch_split: True
+#   num_epochs: 100
+#   loss_type: CrossEntropy
+#   backbone_type: ResNext
+#   classifier_type: MultiHead
+#   algorithm_opt: {contrastive_weight: 1.0}
+#   rand_aug: True
+
+# # dual env with weight ce pipeline
+# weighted_dual:
+#   test_type: baseline
+#   sampler: DistributionSampler # WeightedSampler / DistributionSampler
+#   num_sampler: 2
+#   batch_split: True
+#   num_epochs: 100
+#   loss_type: CrossEntropy
+#   backbone_type: ResNext
+#   classifier_type: FC
+#   algorithm_opt: {env_type : inter_intra, ce_weight : [1.0, 1.0], irm_weight : 0.0, irm_alpha : 0.0, mile_stones : [30, 60, 90]} 
+#   # env_type : correctness / inter / intra / inter_intra / simple_aug
+
+# # quad env pipeline
+# quad_env:
+#   test_type: baseline
+#   sampler: DistributionSampler # WeightedSampler / DistributionSampler
+#   num_sampler: 4
+#   batch_split: True
+#   num_epochs: 100
+#   loss_type: CrossEntropy
+#   backbone_type: ResNext
+#   classifier_type: FC
+#   algorithm_opt: {env_type : inter_intra, irm_weight : 0.0, irm_alpha : 0.0, mile_stones : [30, 60, 90]} 
+#   # env_type : inter_intra / simple_aug
+
+# # IRM quad env pipeline
+# quad_irm:
+#   test_type: baseline
+#   sampler: DistributionSampler # WeightedSampler / DistributionSampler
+#   num_sampler: 4
+#   batch_split: True
+#   num_epochs: 100
+#   loss_type: CrossEntropy
+#   backbone_type: ResNext
+#   classifier_type: FC
+#   algorithm_opt: {env_type : inter_intra, irm_weight : 0.001, irm_alpha : 10, mile_stones : [30, 60, 90]} 
+#   # env_type : inter_intra / simple_aug
