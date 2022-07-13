@@ -120,7 +120,8 @@ This project currently support following methods:
 14. --train_type FocalLA (Combine Focol loss with Logit Adjustment)
 15. --train_type LFF ([Learning from Failure](https://arxiv.org/abs/2007.02561) model)
 16. --train_type LFFLA (Combine Learning from Failure with logit Adjustment)
-
+17. --train_type center_dual (The proposed IFL algorithm that extends the center loss to its Invariant Risk Minimization (IRM) version with two environments)
+18. --train_type center_ride/center_dual_mixup/center_tade etc. (The variations of IFL that combines with other methods, e.g., "center_ride" combines IFL with RIDE model)
 
 ## Conduct Testing
 Test on Train-GLT will automatically evaluate both CLT Protocl (Test-CBL) and GLT Protocol (Test-GBL), so you can run the following command to evaluate your model:
