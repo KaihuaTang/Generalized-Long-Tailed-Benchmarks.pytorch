@@ -19,6 +19,7 @@ If you find our paper or this project helps your research, please kindly conside
 3. [Install the Requirements](#install-the-requirement)
 4. [Prepare GLT Datasets](#prepare-glt-datasets)
 5. [Evaluation Protocols and Metrics](#evaluation-protocols-and-metrics)
+6. [Invariant Feature Learning](#invariant-feature-learning)
 6. [Conduct Training](#conduct-training)
 7. [Conduct Testing](#conduct-testing)
 8. [Add Custom Models](#add-custom-models)
@@ -89,6 +90,12 @@ This protocol combines **(Train-GLT, Test-GBL)** from the above, so both class a
 
 ### Evaluation Metrics
 The top-1 accuracy is commonly adopted as the only metric in the conventional LT studies, yet, it cannot reveal the limitation of precision-accuracy trade-off. Therefore, in GLT classification, we report both **Accuracy** (#CorrectPredictions / #AllSamples), which is equal to Top-1 Recall in the class-wise balanced test sets, and **Precision** (1 / #Class * SUM over class (#CorrectPredictions / #SamplesPredictedAsThisClass)), to better evaluate the effectiveness of algorithms.
+
+
+## Invariant Feature Learning
+
+To tackle the proposed GLT challenge, we introduce an Invariant Feature Learning method to deal with the attribute-wise bias at the feature level. It can be incorporated into the previous LT algorithms to achieve the GLT robustness. To better understand our algorithm, please see the framework and the pseudo code of our algorithm [(Link)]()
+
 
 ## Conduct Training
 
