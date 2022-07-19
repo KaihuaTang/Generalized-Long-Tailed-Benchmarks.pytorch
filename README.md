@@ -1,6 +1,6 @@
 # Generalized Long-tailed Classification (GLT) Benchmarks
 \[ECCV 2022\] This project introduces a new long-tailed challenge that incorporates both the conventional **class-wise imbalance** and the overlooked **attribute-wise imbalance** within each class. The proposed IFL together with other baselines are also included. This project is the official implementation of the ECCV 2022 paper [Invariant Feature Learning for Generalized
-Long-Tailed Classification](https://kaihuatang.github.io/).
+Long-Tailed Classification]().
 
 If you find our paper or this project helps your research, please kindly consider citing our paper in your publications.
 
@@ -13,18 +13,16 @@ If you find our paper or this project helps your research, please kindly conside
 }
 ```
 
-- [ ] TODO: Writing introduction to the proposed IFL
-- [ ] TODO: Others
-
 ## Contents
 1. [Background](#background)
-2. [Install the Requirements](#install-the-requirement)
-3. [Prepare GLT Datasets](#prepare-glt-datasets)
-4. [Evaluation Protocols and Metrics](#evaluation-protocols-and-metrics)
-5. [Conduct Training](#conduct-training)
-6. [Conduct Testing](#conduct-testing)
-7. [Add Custom Models](#add-custom-models)
-8. [Observations](#observations)
+2. [Problem Formulation](#problem-formulation)
+3. [Install the Requirements](#install-the-requirement)
+4. [Prepare GLT Datasets](#prepare-glt-datasets)
+5. [Evaluation Protocols and Metrics](#evaluation-protocols-and-metrics)
+6. [Conduct Training](#conduct-training)
+7. [Conduct Testing](#conduct-testing)
+8. [Add Custom Models](#add-custom-models)
+9. [Observations](#observations)
 
 ## Background
 Existing long-tailed classification methods only focus on tackling the **class-wise imbalance** (*head classes have more samples than tail classes*), but overlook the **attribute-wise imbalance** (*the intra-class distribution is also long-tailed due to the varying attributes*). If we look at samples inside each class in Figure 1, their attributes may also exhibit long-tailed distributions, e.g., there are more sitting dogs than swimming dogs, there are more brown dogs than green dogs. Therefore, simply considering the class distribution won't explain all the phenomena caused by imbalanced data. To be specific, 1) why the performance within each class is also long-tailed? 2) why images are usually mis-classified as classes with similar attributes? The attribute bias is thus incorporated into the proposed generalized long-tailed classification to answer the above questions.  
@@ -34,6 +32,10 @@ However, most of the conventional long-tailed classification benchmarks, e.g., [
 
 <p align = "center"><img src="./figure/generalized-long-tail.jpg"  alt="The Generalized Long Tail."></p>
 <p align = "center"><b>Figure 1. The real-world long-tailed distribution is both class-wise and attribute-wise imbalanced.</b></p>
+
+## Problem Formulation
+
+Prevalent LT methods formulate the classification model as $p(Y\|X)$, predicting the label $Y$ from the input image $X$, which can be further decomposed into $p(Y\|X) \propto p(X\|Y)\cdot p(Y)$
 
 ## Install the Requirement
 - Pytorch >= 1.6.0 (CUDA 10.2)
