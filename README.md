@@ -42,6 +42,10 @@ convert the classification model $p(Y\|X) = p(Y\|z_c, z_a)$ into the following f
 
 <p align = "center"><img src="./figure/glt_formulation.jpg"  alt="The formulation of GLT problem."></p>
 
+where class-specific components $z_c$ only depend on $Y$ as it's invariant cross domains; descriptive attributes $z_a$ that vary across instances may depend on both $Y$ and $z_c$. We generally consider $p(z_c, z_a) = p(z_a|z_c)\cdot p(z_c)$ WITHOUT introducing any independence assumption. Note that we also DO NOT impose the disentanglement assumption that a perfect feature vector $\mathbf{z}=[z_c;z_a]$ with separated $z_c$ and $z_a$ can be obtained, as the disentanglement is a challenging task on its own. Otherwise, we only need to conduct a simple feature selection to obtain the ideal classification model. 
+
+This formulation reduces the previous strong assumption $p_{train}(X\|Y) = p_{test}(X\|Y)$ to a more realistic one, \ie, only a subset of features $z_c$ are invariant cross domains ($p_{train}(z_c\|Y=k) = p_{test}(z_c\|Y=k)$), and this new assumption has to be correct, otherwise, the robust classification model cannot exist.
+
 ## Install the Requirement
 - Pytorch >= 1.6.0 (CUDA 10.2)
 - torchvision >= 0.7.0
