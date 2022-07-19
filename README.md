@@ -94,7 +94,7 @@ The top-1 accuracy is commonly adopted as the only metric in the conventional LT
 
 ## Invariant Feature Learning
 
-To tackle the proposed GLT challenge, we introduce an Invariant Feature Learning method to deal with the attribute-wise bias at the feature level. It can be incorporated into the previous LT algorithms to achieve the GLT robustness. To better understand our algorithm, please see the framework and the pseudo code of our algorithm [(Link)]()
+To tackle the proposed GLT challenge, we introduce an Invariant Feature Learning method to deal with the attribute-wise bias at the feature level. It can be incorporated into the previous LT algorithms to achieve the GLT robustness. To better understand our algorithm, please see the framework and the pseudo code of our algorithm [(Link)](https://github.com/KaihuaTang/Generalized-Long-Tailed-Benchmarks.pytorch/blob/main/IFL.md)
 
 
 ## Conduct Training
