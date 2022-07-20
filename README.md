@@ -66,13 +66,13 @@ pip install sklearn joblib randaugment pyyaml==5.4
 conda install matplotlib
 
 # 4. download this project
-git clone https://github.com/KaihuaTang/Generalized-Long-Tail-Benchmarks.pytorch.git
+git clone https://github.com/KaihuaTang/Generalized-Long-Tailed-Benchmarks.pytorch.git
 ```
 
 ## Prepare GLT Datasets
 We propose two datasets for the Generalized Long-Tailed (GLT) classification tasks: ImageNet-GLT and MSCOCO-GLT. 
-- For **ImageNet-GLT** [(link)](https://github.com/KaihuaTang/Generalized-Long-Tail-Benchmarks.pytorch/tree/main/_ImageNetGeneration), like most of the other datasets, we don't have attribute annotations, so we use feature clusters within each class to represent K ''pretext attributes''. In other words, each cluster represents a meta attribute layout for this class.
-- For **MSCOCO-GLT** [(link)](https://github.com/KaihuaTang/Generalized-Long-Tail-Benchmarks.pytorch/tree/main/_COCOGeneration), we directly adopt attribute annotations from [MSCOCO-Attribute](https://github.com/genp/cocottributes) to construct our dataset.
+- For **ImageNet-GLT** [(link)](https://github.com/KaihuaTang/Generalized-Long-Tailed-Benchmarks.pytorch/tree/main/_ImageNetGeneration), like most of the other datasets, we don't have attribute annotations, so we use feature clusters within each class to represent K ''pretext attributes''. In other words, each cluster represents a meta attribute layout for this class.
+- For **MSCOCO-GLT** [(link)](https://github.com/KaihuaTang/Generalized-Long-Tailed-Benchmarks.pytorch/tree/main/_COCOGeneration), we directly adopt attribute annotations from [MSCOCO-Attribute](https://github.com/genp/cocottributes) to construct our dataset.
 
 Please follow the above links to prepare the datasets.
 
