@@ -28,6 +28,10 @@ Note that our clustered attributes here are purely constructed based on intra-cl
         3. Test-GBL: both classes and pretext attributes are balanced
 
 
+## Download Our Generated Annotation files
+You can directly download our generated json files from [the link](https://1drv.ms/u/s!AmRLLNf6bzcitKlpBoTerorv5yaeIw?e=0bw83U).
+
+
 ## Commands
 Run the following command to generate the ImageNet-GLT annotations: 1) imagenet_sup_intra_lt_inter_lt.json and 2) imagenet_sup_intra_lt_inter_bl.json
 ```
