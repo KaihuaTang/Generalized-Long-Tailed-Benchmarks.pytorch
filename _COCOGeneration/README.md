@@ -27,6 +27,9 @@ Note that the size of Train-CBL split is significantly smaller than Train-GLT, b
 ## Download Our Generated Annotation files
 You can directly download our generated json files from [the link](https://1drv.ms/u/s!AmRLLNf6bzcitKlpBoTerorv5yaeIw?e=0bw83U).
 
+Since OneDrive links might be broken in mainland China, we also provide the following alternate link using BaiduNetDisk:
+
+Link：https://pan.baidu.com/s/1VSpgMVfMFnhQ0RTMzKNIyw  Extraction code：1234
 
 ## Commands
 Run the following command to generate the MSCOCO-GLT annotations: 1) coco_intra_lt_inter_lt.json and 2) coco_intra_lt_inter_bl.json
