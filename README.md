@@ -94,7 +94,7 @@ The top-1 accuracy is commonly adopted as the only metric in the conventional LT
 
 ## Notice
 
-To reproduce the reported experimental results, you need to remove momentum in SGD optimizer. When the deadline is approaching, I suddenly found that I forgot to add momentum into my SGD optimizer. Therefore, I have to just accept the setting of 0 momentum, but since all the methods are replemented under the same optimizer, our conclusions and analyses still hold. For the followers, you can decide whether to add momentum or not.
+To reproduce the reported experimental results, you need to remove momentum in SGD optimizer. When the deadline is approaching, I suddenly found that I forgot to add momentum into my SGD optimizer. Therefore, I have to just accept the setting of 0 momentum, but since all the methods are replemented under the same optimizer, our conclusions and analyses still hold. For the followers, you can decide whether to add momentum at [link](https://github.com/KaihuaTang/Generalized-Long-Tailed-Benchmarks.pytorch/blob/main/utils/training_utils.py) or not.
 
 
 ## Invariant Feature Learning
