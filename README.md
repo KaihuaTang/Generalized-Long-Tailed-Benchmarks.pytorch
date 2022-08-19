@@ -92,10 +92,14 @@ This protocol combines **(Train-GLT, Test-GBL)** from the above, so both class a
 The top-1 accuracy is commonly adopted as the only metric in the conventional LT studies, yet, it cannot reveal the limitation of precision-accuracy trade-off. Therefore, in GLT classification, we report both **Accuracy** (#CorrectPredictions / #AllSamples), which is equal to Top-1 Recall in the class-wise balanced test sets, and **Precision** (1 / #Class * SUM over class (#CorrectPredictions / #SamplesPredictedAsThisClass)), to better evaluate the effectiveness of algorithms.
 
 
+## Notice
+
+To reproduce the reported experimental results, you need to remove momentum in SGD optimizer. When the deadline is approaching, I suddenly found that I forgot to add momentum into my SGD optimizer. Therefore, I have to just accept the setting of 0 momentum, but since all the methods are replemented under the same optimizer, our conclusions and analyses still hold. For the followers, you can decide whether to add momentum or not.
+
+
 ## Invariant Feature Learning
 
 To tackle the proposed GLT challenge, we introduce an Invariant Feature Learning method to deal with the attribute-wise bias at the feature level. It can be incorporated into the previous LT algorithms to achieve the GLT robustness. To better understand our algorithm, please see the framework and the pseudo code of our algorithm [(Link)](https://github.com/KaihuaTang/Generalized-Long-Tailed-Benchmarks.pytorch/blob/main/IFL.md)
-
 
 ## Conduct Training
 
@@ -138,6 +142,7 @@ This project currently support following methods:
 16. --train_type LFFLA (Combine Learning from Failure with logit Adjustment)
 17. --train_type center_dual (The proposed IFL algorithm that extends the center loss to its Invariant Risk Minimization (IRM) version with two environments)
 18. --train_type center_ride/center_dual_mixup/center_tade etc. (The variations of IFL that combines with other methods, e.g., "center_ride" combines IFL with RIDE model)
+
 
 ## Conduct Testing
 Test on Train-GLT will automatically evaluate both CLT Protocl (Test-CBL) and GLT Protocol (Test-GBL), so you can run the following command to evaluate your model:
