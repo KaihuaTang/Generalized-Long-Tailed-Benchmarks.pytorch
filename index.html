@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -6,26 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Text2Light</title>
+    <title>Generalized Long-tailed Classification (GLT)</title>
 
-    <meta name="description" content="Project page for Text2Light: Zero-Shot Text-Driven HDR Panorama Generation.">
+    <meta name="description" content="Project page for Generalized Long-tailed Classification (GLT).">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!--FACEBOOK-->
-    <meta property="og:image" content="https://frozenburning.github.io/projects/text2light/img/teaser.jpg">
-    <meta property="og:image:type" content="image/jpg">
-    <meta property="og:image:width" content="682">
-    <meta property="og:image:height" content="682">
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://frozenburning.github.io/projects/text2light"/>
-    <meta property="og:title" content="Text2Light" />
-    <meta property="og:description" content="Project page for Text2Light: Zero-Shot Text-Driven HDR Panorama Generation." />
-
-        <!--TWITTER-->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Text2Light" />
-    <meta name="twitter:description" content="Project page for Text2Light: Zero-Shot Text-Driven HDR Panorama Generation." />
-    <meta name="twitter:image" content="https://frozenburning.github.io/projects/text2light/img/teaser.jpg" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -38,17 +21,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
-    
+
     <script src="js/app.js"></script>
     <script type="text/javascript">
         function toggle_visibility(id) {
-           var e = document.getElementById(id);
-           if(e.style.display == 'block')
-              e.style.display = 'none';
-           else
-              e.style.display = 'block';
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
         }
-        </script>
+    </script>
 </head>
 
 <body>
@@ -81,9 +64,10 @@
     <div class="container" id="main" style="width: 100%; max-width: 1500px;">
         <div class="row">
             <h1 class="col-md-12 text-center">
-                <b>Text2Light</b>: Zero-Shot Text-Driven HDR Panorama Generation <br>
+                Invariant Feature Learning for Generalized Long-Tailed Classification
+                <br>
                 <small>
-                    TOG 2022 (Proc. SIGGRAPH Asia)
+                    ECCV 2022 (TEL AVIV 2022)
                 </small>
             </h1>
         </div>
@@ -91,61 +75,74 @@
             <div class="col-md-12 text-center">
                 <ul class="list-inline">
                     <li>
-                        <a href="https://frozenburning.github.io">
-                            Zhaoxi Chen
+                        <a href="https://kaihuatang.github.io/" target="_blank">
+                            Kaihua Tang
                         </a>
                     </li>
                     <li>
-                        <a href="https://wanggcong.github.io/">
-                            Guangcong Wang
+                        Mingyuan Tao
+                    </li>
+                    <li>
+                        <a href="https://simpleshinobu.github.io/" target="_blank">
+                            Jiaxin Qi
                         </a>
                     </li>
                     <li>
-                        <a href="http://liuziwei7.github.io">
-                            Ziwei Liu
+                        <a href="https://sites.google.com/view/zhenguangliu/" target="_blank">
+                            Zhenguang Liu
                         </a>
                     </li>
-                    </br>Nanyang Technological University
+                    <li>
+                        <a href="https://personal.ntu.edu.sg/hanwangzhang/" target="_blank">
+                            Hanwang Zhang
+                        </a>
+                    </li>
+
+                    </br>
+
+                    <li>
+                        Nanyang Technological University
+                    </li>
+
+                    <li>
+                        Damo Academy, Alibaba Group
+                    </li>
+
+                    <li>
+                        Zhejiang University
+                    </li>
+
                 </ul>
             </div>
         </div>
 
 
         <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <ul class="nav nav-pills nav-justified">
-                        <li>
-                            <a href="https://arxiv.org/abs/2209.09898">
-                            <image src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png" height="60px">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://arxiv.org/pdf/2207.09504.pdf" target="_blank">
+                            <image
+                                src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png"
+                                height="60px">
                                 <h4><strong>Paper</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../../data/text2light_cr.pdf">
-                            <image src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png" height="60px">
-                                <h4><strong>Highres</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://youtu.be/XDx6tOHigPE">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
                             <image src="img/youtube_icon.png" height="60px">
                                 <h4><strong>Video</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/FrozenBurning/Text2Light">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/kaihuatang/generalized-long-tailed-benchmarks.pytorch"
+                            target="_blank">
                             <image src="img/github.png" height="60px">
                                 <h4><strong>Code</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://colab.research.google.com/github/FrozenBurning/Text2Light/blob/master/text2light.ipynb">
-                            <image src="img/colab.png" height="60px">
-                                <h4><strong>Demo</strong></h4>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
 
@@ -155,437 +152,53 @@
                 <h3>
                     Abstract
                 </h3>
-                <br>
-                <video id="v0" width="100%" autoplay loop muted controls>
-                    <source src="img/teaser.mp4" type="video/mp4"/>
-                </video>
                 <p class="text-justify">
-                    High-quality HDRIs (High Dynamic Range Images), typically HDR panoramas, are one of the most popular ways to create photorealistic lighting and 360-degree reflections of 3D scenes in graphics. Given the difficulty of capturing HDRIs, a versatile and controllable generative model is highly desired, where laymen users can intuitively control the generation process. However, existing state-of-the-art methods still struggle to synthesize high-quality panoramas for complex scenes. In this work, we propose a zero-shot text-driven framework, <strong>Text2Light</strong>, to generate 4K+ resolution HDRIs without paired training data. Given a free-form text as the description of the scene, we synthesize the corresponding HDRI with two dedicated steps: 1) text-driven panorama generation in low dynamic range (LDR) and low resolution (LR), and 2) super-resolution inverse tone mapping to scale up the LDR panorama both in resolution and dynamic range. Extensive experiments demonstrate the superior capability of Text2Light in generating high-quality HDR panoramas. In addition, we show the feasibility of our work in realistic rendering and immersive VR.
+                    Existing long-tailed classification (LT) methods only focus on tackling the class-wise imbalance
+                    that head classes have more samples than tail classes, but overlook the attribute-wise imbalance. In
+                    fact, even if the class is balanced, samples within each class may still be long-tailed due to the
+                    varying attributes. Note that the latter is fundamentally more ubiquitous and challenging than the
+                    former because attributes are not just implicit for most datasets, but also combinatorially complex,
+                    thus prohibitively expensive to be balanced. Therefore, we introduce a novel research problem:
+                    Generalized Long-Tailed classification (GLT), to jointly consider both kinds of imbalances. By
+                    "generalized", we mean that a GLT method should naturally solve the traditional LT, but not vice
+                    versa. Not surprisingly, we find that most class-wise LT methods degenerate in our proposed two
+                    benchmarks: ImageNet-GLT and MSCOCO-GLT. We argue that it is because they over-emphasize the
+                    adjustment of class distribution while neglecting to learn attribute-invariant features. To this
+                    end, we propose an Invariant Feature Learning (IFL) method as the first strong baseline for GLT. IFL
+                    first discovers environments with divergent intra-class distributions from the imperfect predictions
+                    and then learns invariant features across them. Promisingly, as an improved feature backbone, IFL
+                    boosts all the LT line-up: one/two-stage re-balance, augmentation, and ensemble.
                 </p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Framework
-                </h3>
-                <p style="text-align:center;">
-                    <image src="img/framework.png" class="img-responsive" alt="scales">
-                </p>
-                <p class="text-justify">
-                    We decompose the generation process of HDR panorama into two stages. <strong>Stage I</strong> translates the input text to LDR panorama based on a dual-codebook discrete representation. First, the input text is mapped to the text embedding by the pre-trained CLIP model. Second, a text-conditioned global sampler learns to sample holistic semantics from the global codebook according to the input text. Then, a structure-aware local sampler synthesizes local patches and composites them accordingly. <strong>Stage II</strong> upscales the LDR result from Stage I based on structured latent codes as continuous representations. We propose a novel Super-Resolution Inverse Tone Mapping Operator (SR-iTMO) to simultaneously increase the spatial resolution and dynamic range of the panorama.
-                </p>
-            </div>
-        </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    HDRI Gallery
-                </h3>
-                <p>
-                    <u>
-                        Hover to view in VR mode. Click the text to open the full viewer and renderer.
-                    </u>
-                </p>
-                <table>
-                    <tbody>
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[closeup photo of concrete stair surrounded by white painted wall].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[closeup photo of concrete stair surrounded by white painted wall].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[photo of valley].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[photo of valley].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="closeup photo of concrete stair surrounded by white painted wall">closeup photo of concrete stair <br> surrounded by white painted wall</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="photo of valley">photo of valley</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[brown wooden hallway during night time].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[brown wooden hallway during night time].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[Audience, Auditorium, Conference].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[Audience, Auditorium, Conference].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="brown wooden hallway during night time">brown wooden hallway during night time</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="Audience, Auditorium, Conference">Audience, Auditorium, Conference</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[body of water surrounded with buildings].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[body of water surrounded with buildings].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[seashore during golden hour].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[seashore during golden hour].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="body of water surrounded with buildings">body of water surrounded with buildings</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="seashore during golden hour">seashore during golden hour</button>
-                        </td>
-                    </tr>
-                    
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[photo of orange chairs].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[photo of orange chairs].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[brown wooden chairs inside cathedral].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[brown wooden chairs inside cathedral].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="photo of orange chairs">photo of orange chairs</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="brown wooden chairs inside cathedral">brown wooden chairs inside cathedral</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[ocean waves crashing on shore under blue and white cloudy sky during daytime].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[ocean waves crashing on shore under blue and white cloudy sky during daytime].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[white bed linen with white pillow].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[white bed linen with white pillow].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="ocean waves crashing on shore under blue and white cloudy sky during daytime">ocean waves crashing on shore <br> under blue and white cloudy sky during daytime</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="white bed linen with white pillow">white bed linen with white pillow</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[brown canyon during sunset].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[brown canyon during sunset].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[gray concrete pathway with wall signages].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[gray concrete pathway with wall signages].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="brown canyon during sunset">brown canyon during sunset</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="gray concrete pathway with wall signages">gray concrete pathway with wall signages</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[landscape photography of mountain ranges under purple and pink skies].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[landscape photography of mountain ranges under purple and pink skies].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[blue and white hallway with lights turned on in the middle].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[blue and white hallway with lights turned on in the middle].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="landscape photography of mountain ranges under purple and pink skies">landscape photography of mountain <br> ranges under purple and pink skies</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="blue and white hallway with lights turned on in the middle">blue and white hallway with lights turned on in the middle</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[white ceramic sink beside white ceramic toilet bowl].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[white ceramic sink beside white ceramic toilet bowl].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[lined brown pew benches].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[lined brown pew benches].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="white ceramic sink beside white ceramic toilet bowl">white ceramic sink beside white ceramic toilet bowl</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="lined brown pew benches">lined brown pew benches</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[brown house under stary night].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[brown house under stary night].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[blue and brown wooden counter].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[blue and brown wooden counter].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="brown house under stary night">brown house under stary night</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="blue and brown wooden counter">blue and brown wooden counter</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[road in the middle of grass covered field during day].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[road in the middle of grass covered field during day].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[green grass field with trees and mountains in the distance].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[green grass field with trees and mountains in the distance].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="road in the middle of grass covered field during day">road in the middle of grass covered field during day</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="green grass field with trees and mountains in the distance">green grass field with trees and mountains in the distance</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[green trees on brown rock formation on lake during daytime].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[green trees on brown rock formation on lake during daytime].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[concrete road between mountains].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[concrete road between mountains].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="green trees on brown rock formation on lake during daytime">green trees on brown rock formation on lake during daytime</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="concrete road between mountains">concrete road between mountains</button>
-                        </td>
-                    </tr>
-
-
-                    <tr style="display:table-row; text-align: center;">
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[road with falling leaves in between of trees].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[road with falling leaves in between of trees].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="show-hide-wrapper">
-                                <div class="show">
-                                    <img src="img/pano/full_[cityscape at night].png" width="100%">
-                                </div>
-                                <div class="hide_gif">
-                                    <img src="img/vr_gif/full_[cityscape at night].gif" width="100%">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;" >
-                            <button class="named_button" value="road with falling leaves in between of trees">road with falling leaves in between of trees</button>
-                        </td>
-                        <td style="text-align: center; padding-bottom: 3%; width: 50%;">
-                            <button class="named_button" value="cityscape at night">cityscape at night</button>
-                        </td>
-                    </tr>
-
-
-                </tbody></table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Video
+                    Short Presentation (5min) <a href="./asset/_PPT_Short_5min_ECCV2022_Kaihua.pptx", target="_blank">[Slides]</a>
                 </h3>
                 <div class="text-center">
                     <div style="position:relative;padding-top:56.25%;">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/XDx6tOHigPE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Full Presentation (30min) <a href="./asset/_PPT_Full_30min_ECCV2022_Kaihua.pptx", target="_blank">[Slides]</a>
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
                     </div>
                 </div>
             </div>
@@ -598,33 +211,15 @@
                 </h3>
                 <div class="form-group col-md-10" style="padding: 0%; margin: 0%;">
                     <textarea id="bibtex" class="form-control" readonly>
-@article{chen2022text2light,
-    title={Text2Light: Zero-Shot Text-Driven HDR Panorama Generation},
-    author={Chen, Zhaoxi and Wang, Guangcong and Liu, Ziwei},
-    journal={ACM Transactions on Graphics (TOG)},
-    volume={41},
-    number={6},
-    articleno={195},
-    pages={1--16},
-    year={2022},
-    publisher={ACM New York, NY, USA}
-}</textarea>
+@inproceedings{tang2022invariant,
+    title={Invariant Feature Learning for Generalized Long-Tailed Classification},
+    author={Tang, Kaihua and Tao, Mingyuan and Qi, Jiaxin and Liu, Zhenguang and Zhang, Hanwang},
+    booktitle= {ECCV},
+    year={2022}
+  }
+                    </textarea>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Related Links
-                </h3>
-                <p class="text-justify">
-                    <a href="https://style-light.github.io/">StyleLight</a> generates HDR indoor panorama from a limited FOV image. <br>
-                    <a href="https://hongfz16.github.io/projects/AvatarCLIP.html">AvatarCLIP</a> proposes a zero-shot text-driven framework for 3D avatar generation and animation. <br>
-                    <a href="https://yumingj.github.io/projects/Text2Human.html">Text2Human</a> proposes a text-driven controllable human image generation framework. <br>
-                    <a href="https://frozenburning.github.io/projects/relighting4d/">Relighting4D</a> can relight human actors using the HDRI generated by us. <br>
-                    <a href="https://github.com/yuki-koyama/blender-cli-rendering">blender-cli-rendering</a> offers code snippets for rendering 3D assets via command line.
-                </p>
         </div>
 
         <div class="row">
@@ -633,14 +228,13 @@
                     Acknowledgements
                 </h3>
                 <p class="text-justify">
-                    This work is supported by the National Research Foundation, Singapore under its AI Singapore Programme, NTU NAP, MOE AcRF Tier 2 (T2EP20221-0033), and under the RIE2020 Industry Alignment Fund - Industry Collaboration Projects (IAF-ICP) Funding Initiative, as well as cash and in-kind contribution from the industry partner(s).
-                    <br>
-                    The training data are collected from multiple sources, including <a href="https://polyhaven.com/hdris/">Poly-Haven</a>, <a href="https://www.ihdri.com/hdri-skies-outdoor/">iHDRI</a>, <a href="https://hdri-skies.com/">HDRI Skies</a>, <a href="https://hdrmaps.com/">HDRMaps</a>, <a href="http://indoor.hdrdb.com/">Laval indoor dataset</a>, <a href="http://outdoor.hdrdb.com/">Laval outdoor dataset</a>.
+                    This project is partially supported by Alibaba-NTU Singapore Joint Research Institute (JRI), and AI
+                    Singapore (AISG) Research Programme. We also feel grateful to the computational resources provided
+                    by Damo Academy.
                     <br><br>
-
-                    Thanks to <a href="https://hongfz16.github.io">Fangzhou Hong</a>, <a href="https://yumingj.github.io/">Yuming Jiang</a>, and <a href="https://jiawei-ren.github.io/">Jiawei Ren</a> for proofreading the paper.
-                    <br>
-                The website template is borrowed from <a href="https://jonbarron.info/mipnerf/">Mip-NeRF</a>.
+                    The website template is borrowed from <a href="https://jonbarron.info/mipnerf/"
+                        target="_blank">Mip-NeRF</a> and <a href="https://frozenburning.github.io/projects/text2light/"
+                        target="_blank">Text2Light</a>.
                 </p>
                 <br>
             </div>
@@ -648,4 +242,5 @@
 
     </div>
 </body>
+
 </html>
