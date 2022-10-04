@@ -13,7 +13,7 @@ If you find our paper or this project helps your research, please kindly conside
 }
 ```
 
-[\[Project Page\]](https://kaihuatang.github.io/Generalized-Long-Tailed-Benchmarks.pytorch/) [\[5min Slides\]]() [\[30min Slides\]]() 
+[\[Project Page\]](https://kaihuatang.github.io/Generalized-Long-Tailed-Benchmarks.pytorch/) [\[5min Slides\]](https://kaihuatang.github.io/Generalized-Long-Tailed-Benchmarks.pytorch/asset/glt_eccv2022_slides_5min.pptx) [\[30min Slides\]](https://kaihuatang.github.io/Generalized-Long-Tailed-Benchmarks.pytorch/asset/glt_eccv2022_slides_30min.pptx) 
 
 ## Contents
 1. [Background](#background)
