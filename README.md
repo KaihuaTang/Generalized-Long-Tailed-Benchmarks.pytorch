@@ -13,7 +13,7 @@ If you find our paper or this project helps your research, please kindly conside
 }
 ```
 
-[\[Project Page\]](https://kaihuatang.github.io/Generalized-Long-Tailed-Benchmarks.pytorch/)
+[\[Project Page\]](https://kaihuatang.github.io/Generalized-Long-Tailed-Benchmarks.pytorch/) [\[5min Slides\]]() [\[30min Slides\]]() 
 
 ## Contents
 1. [Background](#background)
