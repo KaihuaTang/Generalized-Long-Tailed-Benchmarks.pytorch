@@ -2,6 +2,9 @@
 \[ECCV 2022\] This project introduces a new long-tailed challenge that incorporates both the conventional **class-wise imbalance** and the overlooked **attribute-wise imbalance** within each class. The proposed IFL together with other baselines are also included. This project is the official implementation of the ECCV 2022 paper [Invariant Feature Learning for Generalized
 Long-Tailed Classification](https://arxiv.org/abs/2207.09504).
 
+**If my open source projects have inspired you, giving me some sponsorship will be a great help to my subsequent open source work.** 
+[Support my subsequent open source work❤️🙏](https://kaihuatang.github.io/donate.html)
+
 If you find our paper or this project helps your research, please kindly consider citing our paper in your publications.
 
 ```bash
