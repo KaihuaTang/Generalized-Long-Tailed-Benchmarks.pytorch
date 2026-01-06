@@ -2,8 +2,6 @@
 \[ECCV 2022\] This project introduces a new long-tailed challenge that incorporates both the conventional **class-wise imbalance** and the overlooked **attribute-wise imbalance** within each class. The proposed IFL together with other baselines are also included. This project is the official implementation of the ECCV 2022 paper [Invariant Feature Learning for Generalized
 Long-Tailed Classification](https://arxiv.org/abs/2207.09504).
 
-**If my open source projects have inspired you, giving me some sponsorship will be a great help to my subsequent open source work.** 
-[Support my subsequent open source work❤️🙏](https://kaihuatang.github.io/donate.html)
 
 If you find our paper or this project helps your research, please kindly consider citing our paper in your publications.
 
@@ -165,3 +163,4 @@ To add a custom model, you 1) first need to design a ''train_XXX.py'' file templ
 1. Attribute-wise imbalance is fundamentally different from the class-wise imbalance for two reasons: 1) it's statistical distribution is forbidden during training as exhaustively annotating attributes is prohibitive, 2) multiple attributes tend to co-occur with each other in one object, making instance-wise re-weighting/re-sampling less effective, as every time we sample an object with a rare attribute, it simultaneously sample the co-occurred frequent attributes as well. (To be specific, in MSCOCO-GLT, even if we directly use the explicit attribute annotations, we are still unable to strictly balance the attribute distribution (we can only minimized its STD)).
 
 2. Previous LT methods usually exhibit [precision-recall trade-off](https://arxiv.org/abs/2112.14380) between head and tail classes, therefore, we report both Accuracy, which is equal to Top-1 Recall in the class-wise balanced test sets, and Precision, to better evaluate the effectiveness of algorithms. We empirically found that the recent trend of improving both head and tail categories, though lack a formal definition in their approaches, are essentially trying to solve the GLT challenge. Benefit from the feature learning, these ensemble learning and data augmentation approaches can also serve as good baselines for the proposed GLT as well.
+
